@@ -13,9 +13,10 @@ const btnSave = document
 
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id },
-        func: (note) => {
-          const hasVideo = document.getElementsByTagName("iframe");
 
+        func: () => {
+          const hasVideo = document.getElementsByTagName("iframe");
+          console.log(note);
           if (hasVideo) {
             console.log("The page has a video");
             const progressBar = document.querySelector(".ytp-progress-bar");
