@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmark Video</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 10px;
+        width: 250px;
+        border-radius: 6px;
+      }
+      textarea {
+        width: 100%;
+        height: 50px;
+        margin-top: 5px;
+        border-radius: 6px;
+      }
+
+      textarea::placeholder {
+        padding: 5px 0 0 5px;
+      }
+
+      button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        border-radius: 6px;
+        background-color: rgb(165, 250, 177);
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Bookmark Current Time</h3>
+    <textarea id="note" placeholder="Add a note..."></textarea>
+    <button id="saveBtn">Save</button>
+    <div id="msg" style="margin-top: 10px; color: green"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>
