@@ -5,7 +5,6 @@ const btnSave = document
     const msg = document.getElementById("msg");
     msg.innerText = "Mark saved";
     let note = document.getElementById("note");
-    console.log(note.value);
 
     //Execution in the DOM
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -13,10 +12,9 @@ const btnSave = document
 
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id },
-
-        func: () => {
+        func: (args) => {
           const hasVideo = document.getElementsByTagName("iframe");
-          console.log(note);
+          console.log(args);
           if (hasVideo) {
             console.log("The page has a video");
             const progressBar = document.querySelector(".ytp-progress-bar");
