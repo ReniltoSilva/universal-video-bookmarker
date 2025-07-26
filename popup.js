@@ -12,6 +12,7 @@ const btnSave = document
 
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id },
+        args: [note.value],
         func: (args) => {
           const hasVideo = document.getElementsByTagName("iframe");
           console.log(args);
