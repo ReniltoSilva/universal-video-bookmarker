@@ -16,7 +16,7 @@ const btnSave = document
         args: [note],
         func: (args) => {
           const hasVideo = document.getElementsByTagName("iframe");
-          // console.log(args);
+          console.log(hasVideo);
           
           
           if (hasVideo) {
@@ -28,16 +28,21 @@ const btnSave = document
             //Save timeStamp in chrome local storage
             chrome.storage.local.get(["timeList"], (result) => {
               if (result.timeList) {
-                console.log(timeStamp)
-                console.log(result)
-                console.log(result.timeList);
+
+                  chrome.storage.local.set({ timeList: timeStamp }, () =>
+                  console.log(`${timeStamp}: new time stamp added`)
+                );  
+
+                // console.log(timeStamp)
+                // console.log(result)
+                // console.log(result.timeList);
               } else {
                 chrome.storage.local.set({ timeList: timeStamp }, () =>
                   console.log(`${timeStamp}: Created in local storage`)
                 );
               }
             });
-          }console.log('No video faound in the page')
+          }console.log('No video found in the page')
         },
       });
     });
